@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Week 3 - Challenge 1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+## GoT DOM
 
-## Available Scripts
+Tendrás que programar un interfaz de usuario para que refleje el siguiente modelo de datos.
 
-In the project directory, you can run:
+## Modelo de datos
 
-### `npm start`
+En Juego de Tronos existen personajes. Todos esos personajes tienen la siguiente información:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Nombre
+- Familia a la que pertenece
+- Edad
+- Estado (vivo o muerto, aunque inicialmente todos están vivos)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Todos los personajes pueden realizar la acción de comunicar, pero cada tipo de personaje (no cada personaje) se comunica de un modo distinto. Nota: este método devuelve el string con la frase, no imprime por consola.
 
-### `npm test`
+Todos los personajes pueden realizar la acción de morir, cambiándose su estado a muerto.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Todos los personajes pertenecen a la misma serie, "Juego de Tronos".
 
-### `npm run build`
+Cada uno de esos personajes puede ser un rey, un luchador, un asesor, o un escudero.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Un rey, además de la información que tiene por ser personaje, tiene la siguiente información:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Años de reinado
+- Cuando se comunica dice: "Vais a morir todos"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Un luchador, además de la información que tiene por ser personaje, tiene la siguiente información:
 
-### `npm run eject`
+- Arma que usa
+- Destreza (un valor entre 0 y 10)
+- Cuando se comunica dice: "Primero pego y luego pregunto"
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Un asesor, además de la información que tiene por ser personaje, tiene la siguiente información:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Personaje al que asesora (que puede ser rey, luchador, asesor o escudero)
+- Cuando se comunica dice: "No sé por qué, pero creo que voy a morir pronto"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Un escudero, además de la información que tiene por ser personaje, tiene la siguiente información:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Personaje al que sirve (que sólo puede ser luchador)
+- Grado de servilismo (un valor entre 0 y 10)
+- Cuando se comunica dice: "Soy un loser"
 
-## Learn More
+## Conjunto de datos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Crea los siguientes archivos JS y haz que funcionen como módulos mediante import y export:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Personaje.js, Rey.js, Luchador.js, Asesor.js, Escudero.js (mete dentro cada clase)
+- personajes.js (crea dentro un array con los personajes
+  - Joffrey Baratheon (rey),
+  - Jaime Lannister (luchador),
+  - Daenerys Targaryen (luchadora),
+  - Tyrion Lannister (asesor de Daenerys) y
+  - Bronn (escudero de Jaime).)
+- index.js (aquí va todo el resto del enunciado, y éste será el punto de entrada)
+
+## Creación del interface
+
+1. Haz que por cada personaje del array se muestre la ficha correspondiente en el navegador:
+   - En el elemento con clase `emoji` tiene que aparecer uno de estos emojis dependiendo del tipo de personaje: 👑 🗡 🎓 🛡
+   - Si el personaje está muerto, su foto debe aparecer cabeza abajo (haz el CSS necesario);
+   - En la lista con clase `metadata`, haz que sólo aparezcan los `li` correspondientes al personaje.
+2. Cuando el usuario haga clic en el botón "muere", tiene que cambiar el estado del personaje, y la interfaz debe reflejar el cambio.
+3. Cuando el usuario haga clic en el botón "habla", el elemento con clase `comunicaciones` debe aparecer con el texto y la imagen correspondientes. Haz que este elemento `comunicaciones` tenga la clase `on` durante 2 segundos y luego se le quite.
