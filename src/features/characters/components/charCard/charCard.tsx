@@ -18,8 +18,7 @@ export const CharCard = () => {
             />
             <div className="card-body">
               <h2 className="character__name card-title h4">
-                Nombre: {item.name}
-                Familia: {item.bloodline}
+                Nombre Y Familia : {item.name}
               </h2>
               <div className="character__info">
                 <ul className="list-unstyled">
@@ -33,12 +32,12 @@ export const CharCard = () => {
               </div>
               <div className="character__overlay">
                 <ul className="list-unstyled">
-                  <li>Años de reinado: X</li>
-                  <li>Arma: XXX</li>
-                  <li>Destreza: X</li>
-                  <li>Peloteo: X</li>
-                  <li>Asesora a: X</li>
-                  <li>Sirve a: X</li>
+                  <li>Años de reinado: {item.timeReigned}</li>
+                  <li>Arma: {item.weapon}</li>
+                  <li>Destreza: {item.dexterity}</li>
+                  <li>Peloteo: {item.loyalty}</li>
+                  <li>Asesora a: {item.counseling}</li>
+                  <li>Sirve a: {item.serving}</li>
                 </ul>
                 <div className="character__actions">
                   <button className="character__action btn">habla</button>
