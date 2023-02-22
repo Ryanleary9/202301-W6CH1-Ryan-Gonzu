@@ -1,4 +1,3 @@
-import { ProtoCharStructure } from "../models/char";
 import { CharStructure } from "../models/char";
 export class CharApiRepo {
   url: string;
